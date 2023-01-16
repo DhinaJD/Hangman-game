@@ -27,6 +27,7 @@ const Home = (_=>{
     document.querySelector(".start").addEventListener("click", _ =>{
       console.log("start");
       Sound.click.play()
+      Game.init();
     })
     document.querySelector(".instruction").addEventListener("click", _ =>{
       console.log("instruction");
