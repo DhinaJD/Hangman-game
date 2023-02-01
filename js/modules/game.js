@@ -1,4 +1,5 @@
 import { Sound } from "../data/sound.js";
+import End from "./end.js";
 // import Home from "./home.js";
 
 const Game = (_ =>{
@@ -58,9 +59,33 @@ const Game = (_ =>{
     if(chosenWord.includes(userGuess)){
       updateGuessingWord(userGuess)
     }else{
+      if(lives == 0){return}
       lives--;
     }
     render();
+    //game over function
+    isGameOver();
+  }
+
+
+  const hasWon = _ => guessingWord.join("") === chosenWord;
+  const hasLose = _ => lives <= 0;
+  const isGameOver = _ =>{
+    if(hasWon()){
+      Sound.win.play();
+      End.setState({
+        chosenWord:chosenWord,
+        result:"Win"
+      })
+    }
+
+    if(hasLose()){
+      Sound.lose.play()
+      End.setState({
+        chosenWord:chosenWord,
+        result:"Win"
+      })
+    }
   }
 
   const render = _ =>{
