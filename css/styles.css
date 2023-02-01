@@ -73,6 +73,7 @@ body {
   color: var(--light-black);
   border: 3px solid var(--main-bg-color);
   font-size: 1.2rem;
+  user-select: none;
 }
 .hangman__letter--active {
   background-color: #555;
@@ -90,6 +91,7 @@ body {
   border: 0;
   font-weight: bold;
   color: var(--light-black);
+  user-select: none;
 }
 .button:focus {
   outline: 0;
