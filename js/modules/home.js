@@ -31,7 +31,8 @@ const Home = (_=>{
     })
     document.querySelector(".instruction").addEventListener("click", _ =>{
       console.log("instruction");
-      Sound.click.play()
+      Sound.click.play();
+      instruction.init()
     })
   }
 

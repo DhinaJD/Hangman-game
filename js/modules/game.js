@@ -1,6 +1,7 @@
 import { Sound } from "../data/sound.js";
 import End from "./end.js";
-// import Home from "./home.js";
+import Board from "./board.js";
+import Home from "./home.js";
 
 const Game = (_ =>{
 
@@ -24,6 +25,7 @@ const Game = (_ =>{
     //show initial page
     showInitPage();
     listeners();
+    Board.init();
   }
 
   const listeners = _ =>{
@@ -34,7 +36,7 @@ const Game = (_ =>{
       }
       if(event.target.matches(".hangman__trigger")){
         Sound.click.play();
-        // Home.init();
+        Home.init();
       }
     })
   }
@@ -61,6 +63,8 @@ const Game = (_ =>{
     }else{
       if(lives == 0){return}
       lives--;
+      Board.setLive(lives)
+      Board.render();
     }
     render();
     //game over function
@@ -83,7 +87,7 @@ const Game = (_ =>{
       Sound.lose.play()
       End.setState({
         chosenWord:chosenWord,
-        result:"Win"
+        result:"Lose"
       })
     }
   }
